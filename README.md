@@ -11,7 +11,7 @@ Ce projet présente mon profil, mon parcours, mes compétences et mes différent
 
 ## Accéder au portfolio
 
-[Voir mon portfolio](https://Bakaryndi94.github.io/portfolio/)
+[Voir le site vitrine](https://bakaryndi94.github.io/site-vitrine-marque-fictive-/)
 
 ## Auteur
 
