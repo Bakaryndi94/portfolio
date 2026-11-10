@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bakary Ndiaye – Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --side:#4a6068; --side-ink:#f2f6f7; --side-mute:#b9c8cc;
+  --bg:#f6f8f8; --card:#ffffff; --ink:#1d2a2f; --mute:#5b6b70; --line:#d6dfe1; --accent:#2f7f8f;
+  --head:"Bricolage Grotesque","Trebuchet MS",sans-serif; --body:"DM Sans","Segoe UI",Arial,sans-serif;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --side:#34464c; --bg:#141d20; --card:#1c282c; --ink:#e8eff0; --mute:#9fb0b5; --line:#2c3b40; --accent:#6cc0cf;}}
+:root[data-theme="dark"]{--side:#34464c; --bg:#141d20; --card:#1c282c; --ink:#e8eff0; --mute:#9fb0b5; --line:#2c3b40; --accent:#6cc0cf;}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.65 var(--body);display:grid;grid-template-columns:280px 1fr;min-height:100vh}
+h1,h2,h3{font-family:var(--head);line-height:1.1;margin:0}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+aside{background:var(--side);color:var(--side-ink);padding:2.5rem 1.75rem;position:sticky;top:0;height:100vh;display:flex;flex-direction:column;gap:2rem}
+.brand b{font:800 1.5rem/1.1 var(--head);display:block}
+.brand span{color:var(--side-mute);font-size:.95rem}
+nav{display:flex;flex-direction:column;gap:.25rem}
+nav a{color:var(--side-ink);text-decoration:none;padding:.6rem .9rem;border-radius:8px;border-left:3px solid transparent;font-weight:500}
+nav a:hover{background:rgba(255,255,255,.08)}
+nav a[aria-current="page"]{background:rgba(255,255,255,.14);border-left-color:#fff;font-weight:700}
+.side-foot{margin-top:auto;color:var(--side-mute);font-size:.9rem}
+.side-foot a{color:var(--side-ink)}
+main{padding:4rem clamp(1.25rem,5vw,4.5rem) 5rem;max-width:62rem;width:100%}
+.page{display:none}
+.page.on{display:block;animation:in .35s ease}
+@keyframes in{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.page.on{animation:none}}
+.hero h1{font-size:clamp(3rem,9vw,6.5rem);font-weight:800;letter-spacing:-.03em}
+.hero .role{font:700 1.35rem var(--head);margin:1.25rem 0 0;padding-bottom:1.25rem;border-bottom:8px solid var(--ink)}
+.lead{font-size:1.2rem;max-width:44rem;color:var(--mute);margin:1.5rem 0 2rem}
+.btns{display:flex;gap:.75rem;flex-wrap:wrap}
+.btn{display:inline-block;padding:.75rem 1.25rem;border-radius:8px;font-weight:700;text-decoration:none;border:2px solid var(--ink);color:var(--ink)}
+.btn.main{background:var(--ink);color:var(--bg)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-top:3rem}
+.facts div{border-top:2px solid var(--line);padding-top:.75rem}
+.facts dt{font-size:.9rem;color:var(--mute)}
+.facts dd{margin:0;font-weight:700}
+h2.t{font-size:clamp(2rem,4vw,2.75rem);margin-bottom:.5rem}
+.sub{color:var(--mute);margin:0 0 2.5rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1.75rem}
+.card+.card{margin-top:1.25rem}
+.card h3{font-size:1.35rem}
+.meta{color:var(--mute);margin:.25rem 0 1rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+ul{padding-left:1.2rem;margin:0}
+li+li{margin-top:.4rem}
+.tl{border-left:3px solid var(--line);margin-left:.5rem;padding-left:1.75rem}
+.tl .card{position:relative}
+.tl .card::before{content:"";position:absolute;left:calc(-1.75rem - 9px);top:2rem;width:15px;height:15px;border-radius:50%;background:var(--accent);border:3px solid var(--bg)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem}
+.grid .card+.card{margin-top:0}
+.tags{display:flex;flex-wrap:wrap;gap:.5rem;padding:0;list-style:none}
+.tags li{margin:0;background:var(--bg);border:1px solid var(--line);padding:.3rem .8rem;border-radius:999px;font-size:.95rem}
+.bar{height:8px;background:var(--line);border-radius:4px;margin:.5rem 0 .25rem;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--accent)}
+.contact a.row{display:flex;gap:1rem;align-items:baseline;padding:1rem 0;border-bottom:1px solid var(--line);color:var(--ink);text-decoration:none}
+.contact a.row:hover strong{color:var(--accent)}
+.contact small{min-width:6rem;color:var(--mute)}
+.contact strong{overflow-wrap:anywhere}
+.theme{background:none;border:1px solid var(--side-mute);color:var(--side-ink);border-radius:8px;padding:.4rem .8rem;font:inherit;cursor:pointer}
+@media (max-width:820px){
+  body{display:block}
+  aside{position:sticky;height:auto;padding:.9rem 1rem;top:env(safe-area-inset-top,0px);z-index:5;gap:.6rem}
+  .brand span,.side-foot{display:none}
+  nav{flex-direction:row;overflow-x:auto}
+  nav a{white-space:nowrap;padding:.45rem .8rem;border-left:0;border-bottom:3px solid transparent}
+  nav a[aria-current="page"]{border-bottom-color:#fff}
+  main{padding-top:2rem}
+}
+</style>
+</head>
+<body>
+<aside>
+  <div class="brand"><b>Bakary Ndiaye</b><span>BTS SIO – option SLAM</span></div>
+  <nav aria-label="Navigation principale">
+    <a href="#accueil">Accueil</a>
+    <a href="#experience">Expérience</a>
+    <a href="#projets">Projets</a>
+    <a href="#formation">Formation</a>
+    <a href="#competences">Compétences</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="side-foot">
+    <p><a href="https://github.com/Bakaryndi94" rel="noopener">github.com/Bakaryndi94</a></p>
+    <button class="theme" id="theme" type="button">Mode clair / sombre</button>
+  </div>
+</aside>
+
+<main id="main" tabindex="-1">
+
+<section class="page hero" id="accueil" data-title="Accueil">
+  <h1>Bakary Ndiaye</h1>
+  <p class="role">Étudiant en BTS SIO SLAM – à la recherche d'un stage</p>
+  <p class="lead">Étudiant en 2ème année, spécialisé dans le développement d'applications et la création de solutions logicielles. Motivé et autonome, je souhaite participer à des projets informatiques ambitieux et enrichir mon expérience professionnelle.</p>
+  <div class="btns">
+    <a class="btn main" href="#contact">Me contacter</a>
+    <a class="btn" href="#experience">Voir mon expérience</a>
+  </div>
+  <dl class="facts">
+    <div><dt>Formation</dt><dd>BTS SIO SLAM, 2ème année</dd></div>
+    <div><dt>Langages</dt><dd>Python, Java, SQL, HTML, CSS</dd></div>
+    <div><dt>Centres d'intérêt</dt><dd>Course à pied, jeux vidéo, musique</dd></div>
+  </dl>
+</section>
+
+<section class="page" id="experience" data-title="Expérience">
+  <h2 class="t">Expérience professionnelle</h2>
+  <p class="sub">Un stage de développement web, de la conception à la mise en ligne.</p>
+  <article class="card">
+    <h3>Développeur web en stage</h3>
+    <p class="meta"><span>Paris – 6 semaines</span><span>05/2026 – 06/2026</span></p>
+    <ul>
+      <li>Conception et développement d'un site web pour l'entreprise.</li>
+      <li>Création de l'interface en HTML / CSS / Bootstrap.</li>
+      <li>Adaptation du site pour une utilisation sur ordinateur, tablette et mobile.</li>
+      <li>Utilisation de Git / GitHub pour la gestion et le suivi du projet.</li>
+      <li>Constitution d'une base de données de ressources multimédias libres de droits (photos, vidéos, sons) pour alimenter le contenu de sites web.</li>
+    </ul>
+  </article>
+  <article class="card">
+    <h3>Certificats</h3>
+    <ul style="margin-top:1rem"><li>Certification Pix</li><li>MOOC SecNum Académie</li><li>Cisco Networking Academy – Python Essentials (en cours)</li></ul>
+  </article>
+</section>
+
+<section class="page" id="projets" data-title="Projets">
+  <h2 class="t">Projets</h2>
+  <p class="sub">Quelques réalisations menées pendant ma formation et mon stage.</p>
+  <div class="grid">
+    <article class="card"><h3>Site vitrine – marque de voiture fictive</h3><p style="margin:.75rem 0 0">Création d'un site vitrine présentant une marque automobile fictive : mise en page, design et navigation réalisés from scratch.</p><ul class="tags" style="margin-top:1rem"><li>HTML</li><li>CSS</li></ul></article>
+    <article class="card"><h3>Site pour un magasin à Paris</h3><p style="margin:.75rem 0 0">Site web d'un magasin parisien réalisé avec WordPress et hébergé sur OVH.</p><ul class="tags" style="margin-top:1rem"><li>WordPress</li><li>OVH</li></ul></article>
+    <article class="card"><h3>Jeu inspiré du Mastermind</h3><p style="margin:.75rem 0 0">Jeu de réflexion développé en Java avec interface graphique, inspiré du Mastermind.</p><ul class="tags" style="margin-top:1rem"><li>Java</li><li>JavaFX</li></ul></article>
+    <article class="card"><h3>Projet de stage – site d'entreprise</h3><p style="margin:.75rem 0 0">Conception et développement d'un site web pour l'entreprise pendant mon stage de 6 semaines, avec une interface adaptée à l'ordinateur, la tablette et le mobile.</p><ul class="tags" style="margin-top:1rem"><li>HTML</li><li>CSS</li><li>Bootstrap</li><li>Git / GitHub</li></ul></article>
+  </div>
+</section>
+
+<section class="page" id="formation" data-title="Formation">
+  <h2 class="t">Formation</h2>
+  <p class="sub">Du baccalauréat Maths/NSI au BTS SIO option SLAM.</p>
+  <div class="tl">
+    <article class="card">
+      <h3>BTS SIO – option SLAM (2ème année)</h3>
+      <p class="meta"><span>Lycée Le Rebours – Paris</span><span>09/2025 – en cours</span></p>
+      <p style="margin:0">Solutions logicielles et applications métiers : développement d'applications et création de solutions logicielles.</p>
+    </article>
+    <article class="card">
+      <h3>Baccalauréat – Maths / NSI</h3>
+      <p class="meta"><span>Lycée Teilhard de Chardin – Saint-Maur-des-Fossés</span><span>09/2022 – 07/2025</span></p>
+    </article>
+  </div>
+</section>
+
+<section class="page" id="competences" data-title="Compétences">
+  <h2 class="t">Compétences</h2>
+  <p class="sub">Les outils que j'utilise et la façon dont je travaille.</p>
+  <div class="grid">
+    <article class="card"><h3>Programmation</h3><ul class="tags" style="margin-top:1rem"><li>Python</li><li>Java</li></ul></article>
+    <article class="card"><h3>Web et données</h3><ul class="tags" style="margin-top:1rem"><li>HTML</li><li>CSS</li><li>Bootstrap</li><li>SQL</li></ul></article>
+    <article class="card"><h3>Outils</h3><ul class="tags" style="margin-top:1rem"><li>VS Code</li><li>GitHub</li><li>Docker</li><li>IntelliJ</li></ul></article>
+    <article class="card"><h3>Bureautique</h3><ul class="tags" style="margin-top:1rem"><li>Word</li><li>PowerPoint</li></ul></article>
+    <article class="card"><h3>Qualités</h3><ul class="tags" style="margin-top:1rem"><li>Autonome</li><li>Esprit d'équipe</li><li>Curieux</li><li>Adaptabilité</li><li>Analyse des besoins</li><li>Adaptabilité aux changements technologiques</li></ul></article>
+    <article class="card"><h3>Langues</h3>
+      <p style="margin:1rem 0 0"><b>Français</b> – langue maternelle</p><div class="bar"><i style="width:100%"></i></div>
+      <p style="margin:1rem 0 0"><b>Anglais</b> – intermédiaire supérieur (B2)</p><div class="bar"><i style="width:66%"></i></div>
+    </article>
+  </div>
+</section>
+
+<section class="page contact" id="contact" data-title="Contact">
+  <h2 class="t">Contact</h2>
+  <p class="sub">Je cherche un stage en développement. Écrivez-moi ou appelez-moi.</p>
+  <a class="row" href="mailto:bakaryndiaye916@gmail.com"><small>E-mail</small><strong>bakaryndiaye916@gmail.com</strong></a>
+  <a class="row" href="tel:+33620731645"><small>Téléphone</small><strong>06 20 73 16 45</strong></a>
+  <a class="row" href="https://github.com/Bakaryndi94" rel="noopener"><small>GitHub</small><strong>github.com/Bakaryndi94</strong></a>
+  <div class="row" style="display:flex;gap:1rem;padding:1rem 0"><small style="min-width:6rem;color:var(--mute)">Ville</small><strong>Créteil (94)</strong></div>
+</section>
+
+</main>
+<script>
+(function(){
+  var ids=["accueil","experience","projets","formation","competences","contact"];
+  function show(){
+    var id=(location.hash||"#accueil").slice(1); if(ids.indexOf(id)<0) id="accueil";
+    ids.forEach(function(p){
+      var s=document.getElementById(p); s.classList.toggle("on",p===id);
+      var a=document.querySelector('nav a[href="#'+p+'"]');
+      if(p===id){a.setAttribute("aria-current","page"); document.title=s.dataset.title+" – Bakary Ndiaye";} else a.removeAttribute("aria-current");
+    });
+    window.scrollTo(0,0);
+  }
+  window.addEventListener("hashchange",show); show();
+  document.getElementById("theme").addEventListener("click",function(){
+    var r=document.documentElement, dark=matchMedia("(prefers-color-scheme:dark)").matches;
+    var cur=r.getAttribute("data-theme")||(dark?"dark":"light");
+    r.setAttribute("data-theme",cur==="dark"?"light":"dark");
+  });
+})();
+</script>
+</body>
+</html>
